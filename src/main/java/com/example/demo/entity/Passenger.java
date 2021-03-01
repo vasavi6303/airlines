@@ -71,6 +71,4 @@ public class Passenger {
 	public void setContact(long contact) {
 		this.contact = contact;
 	}
-	
-	
 }

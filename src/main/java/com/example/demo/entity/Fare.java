@@ -17,7 +17,7 @@ public class Fare {
 	String source;
 	
 	@Column(name = "destination", nullable = false)
-	String destinaton;
+	String destination;
 	
 	@Column(name = "fare", nullable = false)
 	int fare;
@@ -39,11 +39,11 @@ public class Fare {
 	}
 
 	public String getDestinaton() {
-		return destinaton;
+		return destination;
 	}
 
 	public void setDestinaton(String destinaton) {
-		this.destinaton = destinaton;
+		this.destination = destinaton;
 	}
 
 	public int getFare() {
