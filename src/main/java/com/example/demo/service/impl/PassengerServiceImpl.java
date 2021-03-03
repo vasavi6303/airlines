@@ -43,7 +43,7 @@ public class PassengerServiceImpl implements PassengerService{
 
 	@Override
 	public Passenger getPassengerByName(String name) {
-		return passengerRepo.findByName(name);
+		return passengerRepo.findTopByName(name);
 	}
 	
 }

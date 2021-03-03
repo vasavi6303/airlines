@@ -1,14 +1,12 @@
 package com.example.demo.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Flight {
@@ -30,8 +28,17 @@ public class Flight {
 	private int availableEconomyClassSeats = 30;
 
 	@Column(name = "date")
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date date;
+
+	public Flight() {
+	}
+
+	public Flight(String source, String destination,
+			Date date) {
+		this.source = source;
+		this.destination = destination;
+		this.date = date;
+	}
 
 	public int getId() {
 		return id;
@@ -56,4 +63,30 @@ public class Flight {
 	public void setDestination(String destination) {
 		this.destination = destination;
 	}
+
+	public int getAvailableBusinessClassSeats() {
+		return availableBusinessClassSeats;
+	}
+
+	public void setAvailableBusinessClassSeats(int availableBusinessClassSeats) {
+		this.availableBusinessClassSeats = availableBusinessClassSeats;
+	}
+
+	public int getAvailableEconomyClassSeats() {
+		return availableEconomyClassSeats;
+	}
+
+	public void setAvailableEconomyClassSeats(int availableEconomyClassSeats) {
+		this.availableEconomyClassSeats = availableEconomyClassSeats;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+	
 }
