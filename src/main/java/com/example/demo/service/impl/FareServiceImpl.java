@@ -34,12 +34,14 @@ public class FareServiceImpl implements FareService{
 	@Override
 	public void deleteFareById(int id) {
 	  fareRepo.deleteById(id);
-		
 	}
 
 	@Override
 	public Fare getFareBySourceAndDestination(String source, String destination) {
+		
 		return fareRepo.findBySourceAndDestination(source, destination);
 	}
+
+	
 
 }

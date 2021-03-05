@@ -9,4 +9,5 @@ import com.example.demo.entity.Fare;
 @Transactional
 public interface FareRepository extends JpaRepository<Fare, Integer>{
 	public Fare findBySourceAndDestination(String source, String destination);
+	
 }

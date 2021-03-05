@@ -58,9 +58,13 @@ public class BookingServiceImpl implements BookingService {
 	@Override
 	public Booking confirmBooking(Passenger passenger, Flight flight, Date date, PreferredClass preferredClass,
 			Fare fare) {
-		
+		Booking booked = null;
 		passengerService.save(passenger);
-		Booking booked = bookingService.save(new Booking(passenger, flight, date, fare.getFare(), preferredClass));
+		if(preferredClass == PreferredClass.BusinessClass) 
+			booked = bookingService.save(new Booking(passenger, flight, date, fare.getBusinessClassFare(), preferredClass));
+		else if(preferredClass == PreferredClass.EconomyClass)
+			booked = bookingService.save(new Booking(passenger, flight, date, fare.getEconomyClassFare(), preferredClass));
+		
 		flightService.updateSeatAvaialability(flight, preferredClass);
 		return booked;
 	}

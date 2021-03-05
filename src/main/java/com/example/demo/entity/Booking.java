@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.example.demo.common.Common.PreferredClass;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Booking {
@@ -33,6 +34,7 @@ public class Booking {
 	@OneToOne(cascade = {CascadeType.ALL})
 	private Passenger passenger;
 
+	@JsonIgnore
 	@OneToOne(cascade = {CascadeType.ALL})
 	private Flight flight;
 

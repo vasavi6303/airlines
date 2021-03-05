@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.common.Common.PreferredClass;
@@ -71,13 +72,31 @@ public class BookingController {
 		map.put("source", source);
 		map.put("destination", destination);
 		map.put("Preferred Class", preferredClass);
-		map.put("fare", fare.getFare());
+		map.put("fare", booking.getFare());
 		
 		return map;
 	}
 	
+	@GetMapping("/getTicket")
+	public String getTicket(@RequestParam("id") int id) {
+		Booking booking = bookingService.getBookingById(id);
+		if(booking == null)
+			return "<h1>Welcome to ABC Airlines </h1> <h2>No booking found with the id:" + id + " </h2>";
+		return "<h1>Welcome to ABC Airlines </h1> " +
+		"<h2>Your booking has been confirmed. Kindly refer the details: </h2>" +
+		"<strong>Booking ID: </strong>" +  booking.getId()  +
+		"<br><strong>Name: </strong>" + booking.getPassenger().getName() + 
+		"<br><strong>Age: </strong> "+  booking.getPassenger().getAge() + 
+		"<br><strong>Gender: </strong>" + booking.getPassenger().getGender() + 
+		"<br><strong>Source: </strong>"+ booking.getFlight().getSource() + 
+		"<br><strong>Destination: </strong>" + booking.getFlight().getDestination() + 
+		"<br><strong>Preferred Class: </strong> "+ booking.getPreferredClass() +
+		"<br><strong>Fare: </strong>" + booking.getFare();
+	}
+
+
 	@GetMapping("/all-bookings")
-	public List<Booking> getAllBookings(){
+	public List<Booking> getAllBookings() {
 		return bookingService.getBookings();
 	}
 

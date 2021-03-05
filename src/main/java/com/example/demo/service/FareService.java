@@ -17,8 +17,5 @@ public interface FareService {
 	public void deleteFareById(int id);
 	
 	public Fare getFareBySourceAndDestination(String source, String destination);
-	
-	
-	
 
 }

@@ -19,8 +19,11 @@ public class Fare {
 	@Column(name = "destination", nullable = false)
 	String destination;
 	
-	@Column(name = "fare", nullable = false)
-	int fare;
+	@Column(name = "business_class_fare", nullable = false)
+	int businessClassFare;
+	
+	@Column(name = "economy_class_fare", nullable = false)
+	int economyClassFare;
 
 	public int getId() {
 		return id;
@@ -46,13 +49,31 @@ public class Fare {
 		this.destination = destinaton;
 	}
 
-	public int getFare() {
-		return fare;
+	public String getDestination() {
+		return destination;
 	}
 
-	public void setFare(int fare) {
-		this.fare = fare;
+	public void setDestination(String destination) {
+		this.destination = destination;
 	}
+
+	public int getBusinessClassFare() {
+		return businessClassFare;
+	}
+
+	public void setBusinessClassFare(int businessClassFare) {
+		this.businessClassFare = businessClassFare;
+	}
+
+	public int getEconomyClassFare() {
+		return economyClassFare;
+	}
+
+	public void setEconomyClassFare(int economyClassFare) {
+		this.economyClassFare = economyClassFare;
+	}
+
+
 	
 	
 
