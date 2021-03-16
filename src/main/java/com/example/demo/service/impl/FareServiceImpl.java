@@ -10,15 +10,15 @@ import com.example.demo.repository.FareRepository;
 import com.example.demo.service.FareService;
 
 @Service
-public class FareServiceImpl implements FareService{
+public class FareServiceImpl implements FareService {
 
 	@Autowired
 	private FareRepository fareRepo;
 	
 	@Override
-	public Boolean save(Fare f) {
-		fareRepo.save(f);
-		return null;
+	public Fare save(Fare f) {
+		return fareRepo.save(f);
+		
 	}
 
 	@Override

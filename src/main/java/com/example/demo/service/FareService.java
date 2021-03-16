@@ -7,7 +7,7 @@ import com.example.demo.entity.Fare;
 
 public interface FareService {
 	
-	public Boolean save(Fare f);
+	public Fare save(Fare f);
 
 	public Fare getFareById(int id);
 	
