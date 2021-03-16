@@ -29,7 +29,7 @@ public class Flight {
 
 	@Column(name = "date")
 	private Date date;
-
+	
 	public Flight() {
 	}
 

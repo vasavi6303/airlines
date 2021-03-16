@@ -6,11 +6,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder(value = { "source", "destination", "businessClassFare", "economyClassFare"})
 @Entity
 public class Fare {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonIgnore
 	int id;
 	
 	@Column(name = "source", nullable = false)
@@ -18,6 +23,7 @@ public class Fare {
 	
 	@Column(name = "destination", nullable = false)
 	String destination;
+	
 	
 	@Column(name = "business_class_fare", nullable = false)
 	int businessClassFare;
@@ -49,14 +55,6 @@ public class Fare {
 		this.destination = destinaton;
 	}
 
-	public String getDestination() {
-		return destination;
-	}
-
-	public void setDestination(String destination) {
-		this.destination = destination;
-	}
-
 	public int getBusinessClassFare() {
 		return businessClassFare;
 	}
@@ -72,9 +70,5 @@ public class Fare {
 	public void setEconomyClassFare(int economyClassFare) {
 		this.economyClassFare = economyClassFare;
 	}
-
-
-	
-	
 
 }
